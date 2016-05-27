@@ -1,0 +1,19 @@
+.. Projet Dédale 2015-2016 documentation master file, created by
+   sphinx-quickstart on Fri May 27 14:04:46 2016.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Ressources du Projet Dédale 2015-2016
+=====================================
+
+Table des matières:
+
+.. toctree::
+   :maxdepth: 2
+
+   ardrone
+   raspberrypi
+   ros
+   tools
+
+

@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Raspberry Pi &mdash; documentation Projet Dédale 2015-2016 0.0.1a</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="documentation Projet Dédale 2015-2016 0.0.1a" href="index.html"/>
+        <link rel="next" title="ROS" href="ros.html"/>
+        <link rel="prev" title="Ressources du Projet Dédale 2015-2016" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Projet Dédale 2015-2016
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1a
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Raspberry Pi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#utilite">Utilité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#demarrage">Démarrage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reseau">Réseau</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mails">Mails</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#liens-externes">Liens externes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ros.html">ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ardrone.html">Ardrone 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Outils</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Projet Dédale 2015-2016</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Raspberry Pi</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/raspberrypi.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="raspberry-pi">
+<h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="utilite">
+<h2>Utilité<a class="headerlink" href="#utilite" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La raspberry est l&#8217;ordinateur embarqué sur le drone. Elle s&#8217;y connecte et intéragit avec permettant le pilotage du
+drone par un programme de façon autonome (sans station de base au sol). Elle est aussi utiliser pour étendre la portée
+de connexion au drone. En effet, la raspberry pi est connectée sur le wifi du drone et sur le wifi du campus grâce à
+ses deux interfaces, et donc accessible par un opérateur depuis le wifi du campus. Concrètement, il est possible d&#8217;agir
+sur le drone dès lors que l&#8217;on est connecté au wifi du campus par le biais de la raspberry pi.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le système de la raspberry est contenu sur une carte SD. Cette dernière est branchée dans le slot prévu à cet effet sur
+la rapsberry pi. Les principaux systèmes disponibles sont : <code class="docutils literal"><span class="pre">Raspbian</span></code> ; <code class="docutils literal"><span class="pre">ArchLinux-ARM</span></code> ; <code class="docutils literal"><span class="pre">Ubuntu-ARM</span></code>
+(uniquement raspberry 2 et +). Le framework ROS utilisé pour le projet est disponible pour les trois précédents systèmes,
+mais les paquets binaires uniquement sous <code class="docutils literal"><span class="pre">Ubuntu-ARM</span></code>. Ainsi, dans le cas de <code class="docutils literal"><span class="pre">Raspbian</span></code> et <code class="docutils literal"><span class="pre">ArchLinux-ARM</span></code>,
+le framework ROS et tous les paquets associés doivent être compilés depuis les sources (et ce n&#8217;est pas une bonne idée,
+les sources de beaucoup de paquets ROS ne sont plus maintenues après la release du paquet binaire sur Ubuntu). En bref,
+le seule système officiellement supportée par ROS est Ubuntu, vouloir en utiliser un autre n&#8217;implique qu&#8217;une perte de
+temps. (Il est même plus rapide de mettre en place une machine virtuelle sous Ubuntu et d&#8217;y installer ROS, que de vouloir
+l&#8217;installer sur un autre système où il n&#8217;est pas nativement supporté). Pour en revenir à l&#8217;installation d&#8217;un système sur
+raspberry pi, une fois en possession d&#8217;une carte SD et d&#8217;une image système pour le modèle de raspberry pi, il suffit
+de faire un :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ dd <span class="k">if</span><span class="o">=</span><span class="s2">&quot;/chemin/vers/fichier/image&quot;</span> <span class="nv">of</span><span class="o">=</span><span class="s2">&quot;/dev/sdX&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Avec <code class="docutils literal"><span class="pre">/dev/sdX</span></code> le chemin vers la carte SD. Pour obtenir ce chemin, la commande <code class="docutils literal"><span class="pre">lsblk</span></code> est utile.
+Pour plus d&#8217;informations, voir les pages <code class="docutils literal"><span class="pre">man</span></code> des différentes commandes utilisées, et la documentation officielle
+des raspberry pi : <a class="reference external" href="https://www.raspberrypi.org/documentation/installation/installing-images/linux.md">Installer un système sur sa raspberry pi</a></p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour accéder à la raspberry pi depuis un autre ordinateur, l&#8217;interface la plus utilisé est le <code class="docutils literal"><span class="pre">ssh</span></code>.
+Elle est accessible dès lors que la raspberry et l&#8217;ordinateur sont en réseau, et ouvre un terminal distant sur la
+raspberry depuis l&#8217;ordinateur, permettant pleinement de s&#8217;en servir. Il suffit, depuis un terminal, de lancer la commande :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ ssh <span class="o">[</span>user<span class="o">]</span>@<span class="o">[</span>hostnameORIPadress<span class="o">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Dans le cas de la raspberry pi, l&#8217;utilisateur par défaut est <code class="docutils literal"><span class="pre">pi</span></code>, le nom d&#8217;hôte <code class="docutils literal"><span class="pre">raspberrypi</span></code> et l&#8217;addresse IP
+varie selon le sous réseau dans lequel les deux appareils sont. Le mot de passe par défaut pour l&#8217;utilisateur <code class="docutils literal"><span class="pre">pi</span></code> est
+<code class="docutils literal"><span class="pre">raspberry</span></code>. Un exemple concret serait (si la raspberry a 192.168.1.2 comme addresse IP) :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ ssh pi@192.168.1.2
+</pre></div>
+</div>
+</div></blockquote>
+<p>Pour plus d&#8217;informations, <code class="docutils literal"><span class="pre">man</span> <span class="pre">ssh</span></code>.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un certain nombre de configuration ont été faites sur la raspberry pi afin de faciliter son utilisation.</p>
+<div class="section" id="demarrage">
+<h3>Démarrage<a class="headerlink" href="#demarrage" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L&#8217;utilisation de scripts de démarrage a été très utile dans notre projet, notamment un script permettant au démarrage
+du système, d&#8217;envoyer un email contenant l&#8217;adresse IP de la raspberry pi (l&#8217;adresse pouvant changer à chaque redémarrages).
+Il est possible de lancer un script au démarrage via la crontab. Elle est éditable en utilisant la commande :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ crontab -e
+</pre></div>
+</div>
+</div></blockquote>
+<p>et voici un exemple d&#8217;entrée dans la crontab :</p>
+<blockquote>
+<div><div class="highlight-crontab"><div class="highlight"><pre><span></span>@reboot /home/pi/Dedale201516_RPI_Setup/startup.sh
+</pre></div>
+</div>
+</div></blockquote>
+<p>qui lance le script <code class="docutils literal"><span class="pre">startup.sh</span></code> ayant pour code :</p>
+<blockquote>
+<div><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+wget --spider www.google.fr
+<span class="k">while</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
+        sleep 2
+        wget --spider www.google.fr
+<span class="k">done</span>
+<span class="k">while</span> <span class="o">[</span> <span class="sb">`</span>cat /sys/class/net/wlan1/operstate<span class="sb">`</span> !<span class="o">=</span> <span class="s2">&quot;up&quot;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">do</span>
+        sleep 2
+<span class="k">done</span>
+ip addr show wlan1 <span class="p">|</span> mail -s <span class="s2">&quot;RaspberryIP&quot;</span> votreadresse@mail.com
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>Ce script essaye simplement de se connneter à google, et dès qu&#8217;il réussie, vérifie que l&#8217;interface wifi est bien
+disponible, puis envoie par email sa configuration wifi vers l&#8217;adresse <code class="docutils literal"><span class="pre">votreadresse&#64;mail.com</span></code></p>
+</div>
+<div class="section" id="reseau">
+<h3>Réseau<a class="headerlink" href="#reseau" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La configuration réseau est certainement la plus importante, elle permet à la raspberry de communiquer avec le drone et
+de se connecter au wifi du campus. Elle se fait via le fichier <code class="docutils literal"><span class="pre">/etc/network/interfaces</span></code>. Nous utilisions ce fichier :</p>
+<blockquote>
+<div><div class="highlight-interfaces"><div class="highlight"><pre><span></span># Please note that this file is written to be used with dhcpcd.
+# For static IP, consult /etc/dhcpcd.conf and &#39;man dhcpcd.conf&#39;.
+
+auto lo
+iface lo inet loopback
+
+auto eth0
+allow-hotplug eth0
+iface eth0 inet static
+    address 169.254.0.2
+    netmask 255.255.255.0
+    network 169.254.0.0
+    broadcast 169.254.0.255
+
+auto wlan0
+allow-hotplug wlan0
+#iface wlan0 inet dhcp
+#wireless-essid ardrone2_090332
+
+auto wlan1
+allow-hotplug wlan1
+iface wlan1 inet dhcp
+    pre-up wpa_supplicant -B -Dwext -i wlan1 -c /etc/wpa_supplicant/wpa_supplicant.conf
+    post-down killall -q wpa_supplicant
+</pre></div>
+</div>
+</div></blockquote>
+<p>L&#8217;interface eth0 est configurée pour une connexion ethernet statique, le wlan0 pour se connecter au drone, et le wlan1
+pour se connecter au wifi du campus grâce au fichier de configuration <code class="docutils literal"><span class="pre">wpa_supplicant</span></code> que voici :</p>
+<blockquote>
+<div></div></blockquote>
+<p>A noter qu&#8217;à des fins de test, il est aussi possible de se connecter en réseau avec la raspberry pi en liaison ethernet
+directe sans même avoir besoin de changer les fichiers de configuration présentés ci-dessus. C&#8217;est très utile lors de la
+première configuration notamment. Pour celà, une fois une image système copiée sur la carte SD, il suffit de monter la
+partition de la carte SD de 50mo ayant un système de fichier FAT/FAT32 (automatique sous Windows), puis d&#8217;éditer le
+fichier <code class="docutils literal"><span class="pre">cmdline.txt</span></code> et d&#8217;ajouter à la fin de l&#8217;unique ligne du fichier : <code class="docutils literal"><span class="pre">ip=169.254.0.2</span></code>. Ensuite, lors du
+prochain démarrage, la raspberry se configurera en adressage statique sur son interface ethernet, il suffit alors avec
+son ordinateur de se mettre en adressage statique avec l&#8217;adresse <code class="docutils literal"><span class="pre">169.254.0.3</span></code> par exemple. Il est ensuite possible
+de se connecter à la raspberry en ssh via</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ ssh pi@169.254.0.2
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="mails">
+<h3>Mails<a class="headerlink" href="#mails" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans la section démarrage, il était question d&#8217;envoyer un mail au démarrage de la raspberry pi contenant son adresse IP.
+Les scripts disponible précédemment utilise la commande <code class="docutils literal"><span class="pre">mail</span></code>. On détail ici sa configuration. Tout d&#8217;abord, il faut
+installer les paquets nécessaires :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo apt-get install mailutils mpack
+$ sudo apt-get install ssmtp
+</pre></div>
+</div>
+</div></blockquote>
+<p>Puis d&#8217;ajouter la configuration de <code class="docutils literal"><span class="pre">ssmtp</span></code> dans le fichier <code class="docutils literal"><span class="pre">/etc/ssmtp/ssmtp.conf</span></code>. Voici le fichier utilisé cette année :</p>
+<blockquote>
+<div><div class="highlight-conf"><div class="highlight"><pre><span></span>root=postmaster
+mailhub=mail
+hostname=raspberrypi
+
+root=ddedale2016@gmail.com
+mailhub=smtp.gmail.com:587
+hostname=srvweb
+AuthUser=ddedale2016@gmail.com
+AuthPass=*******
+FromLineOverride=YES
+UseSTARTTLS=YES
+</pre></div>
+</div>
+</div></blockquote>
+<p>Il est ensuite possible d&#8217;envoyer un email de la façon suivante :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;Contenu du mail&quot;</span> <span class="p">|</span> mail -s <span class="s2">&quot;Titre du mail&quot;</span> destinataire@gmail.com
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="liens-externes">
+<h2>Liens externes<a class="headerlink" href="#liens-externes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une majorité des scripts inscrits dans cette page est disponible dans le dossier <code class="docutils literal"><span class="pre">raspberrypi</span></code> du dépot git : <a class="reference external" href="https://github.com/DedaleTSP/Resources20152016">Ici</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ros.html" class="btn btn-neutral float-right" title="ROS" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Ressources du Projet Dédale 2015-2016" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Team Dédale 2015-2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
