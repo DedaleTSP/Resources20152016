@@ -31,7 +31,7 @@
 
   
     <link rel="top" title="documentation Projet Dédale 2015-2016 0.0.1a" href="index.html"/>
-        <link rel="next" title="Ardrone 2.0" href="ardrone.html"/>
+        <link rel="next" title="Outils" href="tools.html"/>
         <link rel="prev" title="Raspberry Pi" href="raspberrypi.html"/> 
 
   
@@ -82,6 +82,7 @@
             
             
                 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ardrone.html">Ardrone 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="raspberrypi.html">Raspberry Pi</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ROS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
@@ -94,19 +95,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#comprendre-ros">Comprendre ROS</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#lancer-un-fichier-de-demarrage">Lancer un fichier de démarrage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lancer-un-noeud-ros">Lancer un noeud ROS</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#utilisation-du-paquet-ros-2015-2016">Utilisation du paquet ROS 2015-2016</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#developpement">Développement</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#creer-un-paquet-ros">Créer un paquet ROS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#principes-elementaires">Principes élementaires</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#developpement">Développement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#liens-externes">Liens externes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ardrone.html">Ardrone 2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Outils</a></li>
 </ul>
 
@@ -156,45 +151,111 @@
 <h1>ROS<a class="headerlink" href="#ros" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>ROS est un framework dédié à la robotique. Le choix d&#8217;utiliser ROS pour notre projet vient du fait qu&#8217;ayant du repartir
+de 0 au mois de Mars, il nous fallait gagner du temps sur la réalisation de notre solution. L&#8217;intéret réside dans le fait
+que pour ce framework existe un nombre important de paquets, notamment un driver pour l&#8217;ardrone et un paquet de
+reconnaissance de tags. Nous n&#8217;avions donc plus à coder l&#8217;interface avec le matériel, et la reconnaissance de formes,
+mais à les faire intéragir entre eux.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="installer-ros">
 <h3>Installer ROS<a class="headerlink" href="#installer-ros" title="Lien permanent vers ce titre">¶</a></h3>
+<p>ROS peut être compliqué à installer à première vue, notamment lorsqu&#8217;on se lance dans son installation depuis les sources.
+La méthode la plus simple et la plus sûr (perdre du temps sur cette étape n&#8217;est vraiment pas intéressant) consiste à
+l&#8217;installer depuis des paquets binaires disponible dans les dépots des distributions officiellement supportées par ROS.
+A ce jour, uniquement Ubuntu et ses variantes.
+D&#8217;où l&#8217;utilité d&#8217;avoir une raspberry 2 ou plus pour pouvoir y installer le système <code class="docutils literal"><span class="pre">Ubuntu-ARM</span></code>.
+ROS est disponible sous plusieurs versions. A ce jour, <code class="docutils literal"><span class="pre">ROS</span> <span class="pre">indigo</span></code> est la version avec le plus de compatibilité, et
+est disponible sur <code class="docutils literal"><span class="pre">Ubuntu</span> <span class="pre">14.04</span> <span class="pre">(Desktop)</span></code> au maximum. Lors du choix de la version de ROS, il faut faire attention à
+ce que tout les paquets ROS que l&#8217;on projette d&#8217;utiliser soit nativement compatibles avec cette versions (pour encore
+une fois éviter les installations depuis les sources).</p>
+<p>Plus de détails sur l&#8217;installation de ROS sur la documentation officielle <a class="reference external" href="http://wiki.ros.org/fr/ROS/Installation">ici</a></p>
 </div>
 <div class="section" id="installer-un-paquet-ros-depuis-les-depots-ubuntu">
 <h3>Installer un paquet ROS depuis les dépots Ubuntu<a class="headerlink" href="#installer-un-paquet-ros-depuis-les-depots-ubuntu" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour tous les paquets, la procédure d&#8217;installation est indiquée dans la documentation. Lorsque le paquet est disponible
+sur les dépots Ubuntu, il suffit pour l&#8217;installer de lancer :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo apt-get install ros-indigo-ardrone-autonomy
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 <div class="section" id="creer-un-espace-de-travail">
 <h3>Créer un espace de travail<a class="headerlink" href="#creer-un-espace-de-travail" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un espace de travail ROS est nécéssaire au développement de paquets. Pour initialiser un espace de travail, la démarche
+est disponible sur la documentation officielle <a class="reference external" href="http://wiki.ros.org/catkin/Tutorials/create_a_workspace">ici</a></p>
 </div>
 <div class="section" id="installer-un-paquet-depuis-les-sources">
 <h3>Installer un paquet depuis les sources<a class="headerlink" href="#installer-un-paquet-depuis-les-sources" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour installer un paquet depuis les sources, il faut charger les sources dans le répertoire <code class="docutils literal"><span class="pre">catkin_ws/src/</span></code> puis
+la depuis le répertoire <code class="docutils literal"><span class="pre">catkin_ws</span></code> lancer les commande</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ catkin_make
+$ <span class="nb">source</span> ~/catkin_ws/devel/setup.bash
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="comprendre-ros">
 <h2>Comprendre ROS<a class="headerlink" href="#comprendre-ros" title="Lien permanent vers ce titre">¶</a></h2>
+<p>ROS utilise une structure particulière qui lui est propre. Un programme est constitué de <code class="docutils literal"><span class="pre">noeuds</span></code> qui s&#8217;échangent des
+informations <code class="docutils literal"><span class="pre">messages</span></code> à travers des <code class="docutils literal"><span class="pre">topics</span></code>.
+Un programme peut être lancé via un fichier de lancement <code class="docutils literal"><span class="pre">launch</span></code> ou directement en lançant le noeud (archaïque).
+Différents outils en ligne de commande permettent de manipuler ROS, notamment <code class="docutils literal"><span class="pre">roslaunch</span></code> qui permet de lancer un fichier
+<code class="docutils literal"><span class="pre">launch</span></code>, et <code class="docutils literal"><span class="pre">rostopic</span></code> qui permet d&#8217;intéragir directement avec les topics ouvert par un noeud (leur envoyer des messages
+ou recevoir ce qu&#8217;ils émettent).
+Pour plus d&#8217;informations, utilisez la commande <code class="docutils literal"><span class="pre">man</span></code></p>
 <div class="section" id="lancer-un-fichier-de-demarrage">
 <h3>Lancer un fichier de démarrage<a class="headerlink" href="#lancer-un-fichier-de-demarrage" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une fois un paquet installé, les fichiers de démmarage sont disponible dans son répertoire racine sous <code class="docutils literal"><span class="pre">/launch</span></code>.
+Pour executer une fichier de démarrage :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ roslaunch <span class="o">[</span>PackageName<span class="o">]</span> <span class="o">[</span>LaunchFile<span class="o">]</span>
+</pre></div>
 </div>
-<div class="section" id="lancer-un-noeud-ros">
-<h3>Lancer un noeud ROS<a class="headerlink" href="#lancer-un-noeud-ros" title="Lien permanent vers ce titre">¶</a></h3>
+</div></blockquote>
+<p>Par exemple :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ roslaunch ardrone_autonomy ardrone_driver.launch
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="utilisation-du-paquet-ros-2015-2016">
 <h2>Utilisation du paquet ROS 2015-2016<a class="headerlink" href="#utilisation-du-paquet-ros-2015-2016" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le paquet ROS écrit en 2015-2016 peut être installé et utilisé suivant la procédure (nécessite ROS indigo d&#8217;installé et
+un espace de travail catkin sous <code class="docutils literal"><span class="pre">~/catkin_ws/</span></code></p>
+<dl class="docutils">
+<dt><strong>Installer les dépendances</strong></dt>
+<dd></dd>
+<dt><strong>Installer le paquet</strong></dt>
+<dd></dd>
+<dt><strong>Lancer le programme</strong></dt>
+<dd></dd>
+</dl>
 </div>
 <div class="section" id="developpement">
 <h2>Développement<a class="headerlink" href="#developpement" title="Lien permanent vers ce titre">¶</a></h2>
-<div class="section" id="creer-un-paquet-ros">
-<h3>Créer un paquet ROS<a class="headerlink" href="#creer-un-paquet-ros" title="Lien permanent vers ce titre">¶</a></h3>
-</div>
-<div class="section" id="principes-elementaires">
-<h3>Principes élementaires<a class="headerlink" href="#principes-elementaires" title="Lien permanent vers ce titre">¶</a></h3>
-</div>
+<p>Pour le développement et l&#8217;utilisation générale de ROS, la documentation officielle est très bien faite : <a class="reference external" href="http://wiki.ros.org/fr/ROS/Tutorials">ici</a>.
+Une grande aide pour le développement est la consultation d&#8217;exemples dans les sources d&#8217;autres paquets.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/FalkorSystems/falkor_ardrone">falkor_ardrone</a></li>
+<li><a class="reference external" href="http://www.ros.org/wiki/tum_ardrone">tum_ardrone</a></li>
+<li><a class="reference external" href="https://github.com/parcon/arl_ardrone_examples">arl_ardrone_examples</a></li>
+<li><a class="reference external" href="https://github.com/mikehamer/ardrone_tutorials">AR Drone Tutorials</a></li>
+<li><a class="reference external" href="http://wiki.ros.org/tum_simulator">tum_simulator</a></li>
+</ul>
+<p>Enfin, la documentation du paquet <code class="docutils literal"><span class="pre">ardrone_autonomy</span></code> est très complète et disponible <a class="reference external" href="http://ardrone-autonomy.readthedocs.io/">ici</a></p>
 </div>
 <div class="section" id="liens-externes">
 <h2>Liens externes<a class="headerlink" href="#liens-externes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Installer ROS sur Ubuntu : <a class="reference external" href="http://wiki.ros.org/fr/ROS/Installation">ici</a>
+Initialiser un espace de travail : <a class="reference external" href="http://wiki.ros.org/catkin/Tutorials/create_a_workspace">ici</a>
+Tuto ROS : <a class="reference external" href="http://wiki.ros.org/fr/ROS/Tutorials">ici</a></p>
 </div>
 </div>
 
@@ -205,7 +266,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ardrone.html" class="btn btn-neutral float-right" title="Ardrone 2.0" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tools.html" class="btn btn-neutral float-right" title="Outils" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="raspberrypi.html" class="btn btn-neutral" title="Raspberry Pi" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

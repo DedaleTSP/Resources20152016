@@ -7,7 +7,7 @@ Ressources du Projet Dédale 2015-2016
 =====================================
 
 Cette documentation a pour but de rendre compte des connaissances acquises lors de l'année 2015-2016 autour du projet
-Dédale, et de fournir un condensée des informations et ressources utiles à la continuation du projet.
+Dédale, et de fournir un condensé des informations et ressources utiles à la continuation du projet.
 
 **Table des matières:**
 

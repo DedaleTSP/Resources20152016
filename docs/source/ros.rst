@@ -111,7 +111,7 @@ un espace de travail catkin sous ``~/catkin_ws/``
 Développement
 #############
 
-Pour le développement et l'utilisation générale de ROS, la documentation officielle est très bien faite : `ici <http://wiki.ros.org/fr/ROS/Tutorials>`_
+Pour le développement et l'utilisation générale de ROS, la documentation officielle est très bien faite : `ici <http://wiki.ros.org/fr/ROS/Tutorials>`_.
 Une grande aide pour le développement est la consultation d'exemples dans les sources d'autres paquets.
 
 - `falkor_ardrone <https://github.com/FalkorSystems/falkor_ardrone>`_
